@@ -1,13 +1,14 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import { Tabs } from 'expo-router'
 
-const _TabLayout = () => {
+const Generator = () => {
   return (
-   <Tabs/>
+    <View>
+      <Text>generator</Text>
+    </View>
   )
 }
 
-export default _TabLayout
+export default Generator
 
 const styles = StyleSheet.create({})
