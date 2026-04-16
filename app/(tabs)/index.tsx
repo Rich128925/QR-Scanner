@@ -2,6 +2,8 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import {useCameraPermissions} from 'expo-camera'
+import { Link } from 'expo-router'
+
 
 const Index = () => {
   const [permission, requestPermission] = useCameraPermissions()
@@ -15,11 +17,13 @@ const Index = () => {
       <TouchableOpacity onPress={()=> {requestPermission()}}>
         <Text style={styles.buttton}>Scan QR Code</Text>
       </TouchableOpacity>
-      <TouchableOpacity onPress={()=>{alert('Scanning code...')}} disabled={!isPermissionGranted}>
+      <Link href={'/scanner'} asChild>
+      <TouchableOpacity disabled={!isPermissionGranted}>
         <Text style={[styles.buttton, {
           opacity: isPermissionGranted ? 1 : 0.5
         }]}>Scan Code</Text>
       </TouchableOpacity>
+      </Link>
         </View>
     </SafeAreaView>
   )
